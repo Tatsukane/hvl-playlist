@@ -235,7 +235,6 @@ class MusicPlayer {
 		this.currentCover = document.getElementById("current-cover");
 		this.currentTitle = document.getElementById("current-title");
 		this.currentArtist = document.getElementById("current-artist");
-		this.currentAlbum = document.getElementById("current-album");
 
 		this.albumHero = document.getElementById("album-hero");
 		this.btnPlayMain = document.getElementById("btn-play-main");
@@ -485,17 +484,16 @@ class MusicPlayer {
 			this.currentPage = targetPage;
 		}
 
-		this.audio.src = encodeURI(track.src);
-		this.currentTitle.textContent = track.title;
-		this.currentArtist.textContent = track.artist;
-		this.currentAlbum.textContent = track.album || "HVL";
-		this.currentCover.src = track.cover;
+		if (this.audio) this.audio.src = encodeURI(track.src);
+		if (this.currentTitle) this.currentTitle.textContent = track.title;
+		if (this.currentArtist) this.currentArtist.textContent = track.artist;
+		if (this.currentCover) this.currentCover.src = track.cover;
 
 		this.renderSongList(this.songs);
 
-		this.progressBarFill.style.width = "0%";
-		this.timeCurrent.textContent = "00:00";
-		this.timeDuration.textContent = track.duration || "00:00";
+		if (this.progressBarFill) this.progressBarFill.style.width = "0%";
+		if (this.timeCurrent) this.timeCurrent.textContent = "00:00";
+		if (this.timeDuration) this.timeDuration.textContent = track.duration || "00:00";
 	}
 
 	playTrack() {

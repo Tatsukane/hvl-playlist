@@ -93,6 +93,8 @@
 				</div>
 
 				<div class="controls-row">
+					<div class="control-group-left"></div>
+
 					<div class="control-group-center">
 						<button class="btn-ctrl" id="btn-shuffle" title="Trộn bài">
 							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -130,6 +132,18 @@
 							<span class="repeat-one-badge" id="repeat-one-badge">1</span>
 							<span class="repeat-dot" id="repeat-dot-indicator"></span>
 						</button>
+					</div>
+
+					<div class="control-group-right">
+						<div class="volume-wrapper">
+							<button class="btn-ctrl" id="btn-mute" title="Bật/Tắt âm thanh">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="volume-icon">
+									<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+									<path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+								</svg>
+							</button>
+							<input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="0.8">
+						</div>
 					</div>
 				</div>
 			</footer>

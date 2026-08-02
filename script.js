@@ -489,6 +489,17 @@ class MusicPlayer {
 		if (this.currentArtist) this.currentArtist.textContent = track.artist;
 		if (this.currentCover) this.currentCover.src = track.cover;
 
+		if ("mediaSession" in navigator) {
+			navigator.mediaSession.metadata = new MediaMetadata({
+				title: track.title,
+				artist: track.artist,
+				album: track.album || "HVL",
+				artwork: [
+					{ src: track.cover, sizes: "512x512", type: "image/jpeg" }
+				]
+			});
+		}
+
 		this.renderSongList(this.songs);
 
 		if (this.progressBarFill) this.progressBarFill.style.width = "0%";
@@ -676,6 +687,13 @@ class MusicPlayer {
 					this.infoModal.classList.remove("active");
 				}
 			});
+		}
+
+		if ("mediaSession" in navigator) {
+			navigator.mediaSession.setActionHandler("play", () => this.playTrack());
+			navigator.mediaSession.setActionHandler("pause", () => this.pauseTrack());
+			navigator.mediaSession.setActionHandler("previoustrack", () => this.prevTrack());
+			navigator.mediaSession.setActionHandler("nexttrack", () => this.nextTrack());
 		}
 
 		document.addEventListener("keydown", (e) => {

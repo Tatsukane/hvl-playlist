@@ -545,17 +545,28 @@ body {
 
 .controls-row {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	width: 100%;
+}
+
+.control-group-left,
+.control-group-right {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 220px;
+}
+
+.control-group-right {
+	justify-content: flex-end;
 }
 
 .control-group-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 24px;
-	width: 100%;
+	gap: 20px;
 }
 
 .btn-ctrl {
@@ -777,22 +788,18 @@ body {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		gap: 16px;
 		width: 100%;
 	}
 
-	.control-group-left {
-		display: none;
-	}
-
+	.control-group-left,
 	.control-group-right {
-		width: auto;
-		justify-content: center;
+		display: none !important;
 	}
 
 	.control-group-center {
 		justify-content: center;
 		gap: 16px;
+		width: 100%;
 	}
 
 	.btn-play-main {
